@@ -14,7 +14,7 @@ const Tetris = () => {
     const [dropTime, setDropTime] = useState(null);
     const [gameOver, setGameOver] = useState(false);
 
-    const [player, updatePlayerPos, resetPlayer] = usePlayer();
+    const [player, updatePlayerPos, resetPlayer, playerRotate] = usePlayer();
     const [stage, setStage] = useStage(player, resetPlayer);
 
     const movePlayer = dir => {
@@ -40,6 +40,10 @@ const Tetris = () => {
             case 40:
                 // down arrow
                 dropPlayer();
+                break;
+            case 38:
+                // up arrow
+                playerRotate(stage, 1);
                 break;
             default:
                 break;
