@@ -16,8 +16,8 @@ export const usePlayer = () => {
             pos: {
                 x: (prevState.pos.x += x),
                 y: (prevState.pos.y += y),
-                collided,
-            }
+            },
+            collided,
         }));
     }
 
