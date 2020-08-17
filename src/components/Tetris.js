@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import Stage from "./Stage";
 import Display from "./Display";
 import StartButton from "./StartButton";
+import NextTetromino from "./NextTetromino";
 
 import {createStage, checkCollision} from "../gameHelpers";
 
@@ -115,16 +116,14 @@ const Tetris = () => {
             <StyledTetris>
                 <Stage stage={stage}/>
                 <aside>
-                    {gameOver ? (
-                        <Display gameOver={gameOver} text={"Game Over"}/>
-                    ) : (
-                        <div>
-                            <Display text={`Score: ${score}`}/>
-                            <Display text={`Rows: ${rows}`}/>
-                            <Display text={`Level: ${level}`}/>
-                        </div>
-                    )
-                    }
+                    <NextTetromino nextTetromino={player.nextTetromino}/>
+                    <div>
+                        <Display text={`Score: ${score}`}/>
+                        <Display text={`Rows: ${rows}`}/>
+                        <Display text={`Level: ${level}`}/>
+                        {gameOver && <Display gameOver={gameOver} text={"Game Over"}/>}
+                    </div>
+
                     <StartButton callback={startGame}/>
                 </aside>
             </StyledTetris>

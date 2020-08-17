@@ -1,10 +1,16 @@
 export const STAGE_WIDTH = 12;
 export const STAGE_HEIGHT = 20;
+export const NEXT_TETROMINO_STAGE_HEIGHT = 5;
+export const NEXT_TETROMINO_STAGE_WIDTH = 5;
 
 export const createStage = () => Array.from(Array(STAGE_HEIGHT), createEmptyRow);
 
 export const createEmptyRow = () =>
     new Array(STAGE_WIDTH).fill([0, 'clear']);
+
+export const createNextTetrominoStage = () => Array.from(Array(NEXT_TETROMINO_STAGE_HEIGHT),
+    () => new Array(NEXT_TETROMINO_STAGE_WIDTH).fill([0])
+);
 
 export const checkCollision = (player, stage, {x: moveX, y: moveY}) => {
     for (let y = 0; y < player.tetromino.length; y++) {
